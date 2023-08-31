@@ -1,0 +1,7 @@
+div {
+  caret-color: transparent;
+}
+
+input, textarea {
+  caret-color: #000;
+}
