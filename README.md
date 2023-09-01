@@ -208,3 +208,7 @@ To build.
 
 * Bulls and Cowsが表示される。
  
+
+## memo
+
+2023/09/01 vue-portal1がメンテナンス不能になったのでvue-portal2にマイグレーション。webpack＋vue2＋element-uiからvite＋vue3＋element-plusに変更。
