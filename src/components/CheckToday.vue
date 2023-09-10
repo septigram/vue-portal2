@@ -53,6 +53,11 @@ const loadChecks = () => {
     const json = window.localStorage.getItem('checks');
     if (json) {
       store.value = JSON.parse(json);
+      if (store.value.openWhenNoCheck) {
+        if (!checked() && check1.value) {
+          check1.value.setState(true);
+        }
+      }
     }
   }
 }
@@ -60,7 +65,7 @@ const loadChecks = () => {
 
 <template>
   <div class="checkToday">
-    <sept-collapse title="毎日チェック" ref="check1" :isOpen="store.openWhenNoCheck && !checked()" :showHeader="true">
+    <sept-collapse title="毎日チェック" ref="check1" :isOpen="store.openWhenNoCheck && !checked()" :showHeader="true" :state="false">
       <div>
         <template v-if="checked()">
           <div class="checked">チェック済</div>

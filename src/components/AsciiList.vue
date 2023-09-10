@@ -58,7 +58,7 @@ onMounted(() => {
 
 <template>
   <div class="ascii">
-    <sept-collapse title="Asciiコード表" :showHeader="true">
+    <sept-collapse title="Asciiコード表" :showHeader="true" :state="false">
       <table>
         <tr>
           <th></th>

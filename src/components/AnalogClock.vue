@@ -94,7 +94,7 @@ const fmtTime = (d: Date | null): string => {
 
 <template>
   <div class="analogClock">
-    <sept-collapse title="時計" :isOpen='true' :showHeader='false'>
+    <sept-collapse title="時計" :isOpen="true" :showHeader='false' :state="true">
       <canvas ref="clock1" width="120" height="120"/><br/>
       <div class="disp1">{{time1}}</div>
       <div class="disp2">{{time2}}</div>

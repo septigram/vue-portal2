@@ -25,7 +25,7 @@ const storeMemo = () => {
   
 <template>
   <div class="memo">
-    <sept-collapse title="ちょいメモ" :showHeader="true">
+    <sept-collapse title="ちょいメモ" :showHeader="true" :state="false">
       <el-input type="textarea" :row='10' v-model="memo" @change="storeMemo()"/>
     </sept-collapse>
   </div>

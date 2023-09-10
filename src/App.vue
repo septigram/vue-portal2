@@ -38,10 +38,8 @@ const components = ref([
   { name: 'ちょいメモ', type: 'memo', checked: true },
   { name: '毎日チェック', type: 'check-today', checked: true },
   { name: 'パスワード生成', type: 'gen-password', checked: true },
-  // { name: '', type: 'sub-frame', checked: true },
   { name: 'ナンプレ', type: 'sudoku', checked: true },
   { name: 'Bulls and Cows', type: 'bulls-and-cows', checked: true },
-  // { name: '', type: 'test', checked: true }
 ] as ComponentInfo[]);
 
 onMounted(() => { initialize(); });
@@ -50,7 +48,7 @@ const initialize = () => {
   if (!window.localStorage) {
     return;
   }
-  const comp = window.localStorage.getItem('vue-portal2-comp')
+  const comp = window.localStorage.getItem('vue-portal1-comp')
   if (comp) {
     components.value = JSON.parse(comp) as ComponentInfo[];
     let hasBullsAndCows = false;
@@ -68,7 +66,7 @@ const initialize = () => {
 const onUpdate = () => {
   showComponentEdit.value = false;
   if (window.localStorage) {
-    window.localStorage.setItem('vue-portal2-comp', JSON.stringify(components.value));
+    window.localStorage.setItem('vue-portal1-comp', JSON.stringify(components.value));
   }
 };
 
@@ -100,6 +98,7 @@ const onUpdate = () => {
         </template>
       </li>
     </template>
+    <div class="version">v2.23.911</div>
     <el-dialog v-model="showComponentEdit" title="表示コンポーネント">
       <div class="componentList">
         <vue-draggable-next v-model="components" el="div" ghost="ghost">
@@ -142,5 +141,10 @@ div.el-collapse-item__content {
 div.el-collapse-item__header {
   height: 32px;
   line-height: 32px;
+}
+
+div.version {
+  font-size: x-small;
+  color: #999;
 }
 </style>

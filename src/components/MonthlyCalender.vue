@@ -209,7 +209,7 @@ const n2 = (n: number): string => {
 
 <template>
   <div class="montylyCalendar">
-    <sept-collapse title="カレンダー" :isOpen="true" :showHeader="true">
+    <sept-collapse title="カレンダー" :isOpen="true" :showHeader="true" :state="true">
       <template #header>
         <el-button @click="goThisMonth()" circle size="small" style="float:right;"><el-icon><House/></el-icon></el-button>
       </template>

@@ -146,7 +146,7 @@ const tick = () => {
 
 <template>
   <div class="bullsAndCowsGame">
-    <sept-collapse title="BullsAndCows" :showHeader="true">
+    <sept-collapse title="BullsAndCows" :showHeader="true" :state="false">
       <div v-if='end' class="goal">
         <div class="goalMessage">
           Complete!

@@ -116,7 +116,7 @@ const toHex = (v: string): string => {
 
 <template>
   <div class="calculatorTool">
-    <sept-collapse title="電卓" :showHeader="true">
+    <sept-collapse title="電卓" :showHeader="true" :state="false">
       <div class="disp">
         {{dispValue}}<br/>
         <span style="font-size: small;">{{toHex(dispValue)}}</span>

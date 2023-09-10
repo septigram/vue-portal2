@@ -16,7 +16,7 @@ const convRevUtf8 = () => {
 
 <template>
   <div class="codeConvert">
-    <sept-collapse title="コード変換" :showHeader="true">
+    <sept-collapse title="コード変換" :showHeader="true" :state="false">
       <button @click="convUtf8()">平文→URL</button>
       <button @click="convRevUtf8()">URL→平文</button><br/>
       IN:<input v-model='codeInput'/><br/>

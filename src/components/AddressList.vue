@@ -203,7 +203,7 @@ const openAll = (c: Category) => {
 
 <template>
   <div class="addressList">
-    <sept-collapse title="ブックマーク" :isOpen="true" :showHeader="true">
+    <sept-collapse title="ブックマーク" :isOpen="true" :showHeader="true" :state="true">
       <template #header>
         <el-button circle @click="foldAll(false)" size="small" title="すべて開く" class="foldButton"><el-icon><Plus/></el-icon></el-button>
         <el-button circle @click="foldAll(true)" size="small" title="すべて閉じる" class="foldButton"><el-icon><Minus/></el-icon></el-button>
@@ -258,7 +258,7 @@ const openAll = (c: Category) => {
       <transition name="editbutton">
         <el-button @click="addCategory()" v-if="editMode"><el-icon><Plus/></el-icon>カテゴリー追加</el-button>
       </transition>
-      <sept-collapse title="JSONデータ" v-if="editMode" :showHeader="true">
+      <sept-collapse title="JSONデータ" v-if="editMode" :showHeader="true" :state="false">
         <el-input type="textarea" v-model="targetJson" :rows="20"></el-input>
         <el-button @click="updateJson()">更新</el-button>
       </sept-collapse>
@@ -312,6 +312,7 @@ const openAll = (c: Category) => {
 
 <style>
 li.category {
+  display: inline-block;
   border-radius: 0.3em;
   padding: 0;
   margin: 0;

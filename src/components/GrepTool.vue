@@ -35,7 +35,7 @@ const updateResult = () => {
   
 <template>
   <div class="grepTool">
-    <sept-collapse title="GREPツール" :showHeader="true">
+    <sept-collapse title="GREPツール" :showHeader="true" :state="false">
       <input v-model="keyword" @keyup="updateResult()"/>
       <el-checkbox v-model="isRegex" @change="updateResult()">正規表現</el-checkbox>
       <el-tabs v-model="tab">

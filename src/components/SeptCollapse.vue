@@ -3,11 +3,13 @@ import { ref } from 'vue';
 
 const props = defineProps<{
   showHeader: boolean,
-  title: string,  
+  title: string,
+  state: boolean,
 }>();
+
 const title = ref<string>(props.title);
 const showHeader = ref<boolean>(props.showHeader);
-const state = ref<boolean>(true);
+const state = ref<boolean>(props.state);
 
 const onClick = () => {
   state.value = !state.value;
@@ -16,6 +18,8 @@ const onClick = () => {
 const setState = (b: boolean) => {
   state.value = b;
 };
+
+defineExpose({ setState });
 
 </script>
 

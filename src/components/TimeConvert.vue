@@ -17,7 +17,7 @@ const convTime2 = () => {
   
 <template>
   <div class="timeConvert">
-    <sept-collapse title="時間変換" :showHeader="true">
+    <sept-collapse title="時間変換" :showHeader="true" :state="false">
       <button @click="convTime1()">UNIX時間→時刻</button>
       <button @click="convTime2()">時刻→UNIX時間</button><br/>
       IN:<input v-model='codeInput'/><br/>

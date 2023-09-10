@@ -241,7 +241,7 @@ const onMenu = (index: string) => {
   
 <template>
   <div class="sudokuGame">
-    <sept-collapse title="Sudoku" :showHeader="true">
+    <sept-collapse title="Sudoku" :showHeader="true" :state="false">
       <div>
         <div class="timer">
           {{ timer }}

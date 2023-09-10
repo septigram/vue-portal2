@@ -276,7 +276,7 @@ const angleToHue = (colorMap: ColorMap | null, angle: number) => {
 
 <template>
   <div class="colorWheel">
-    <sept-collapse title="カラーホイール" :showHeader="true">
+    <sept-collapse title="カラーホイール" :showHeader="true" :state="false">
       <div class="vBarBox">
         <canvas ref="canvas1" width="120" height="120" @click="setHue"/><br/>
         <el-checkbox v-model="huristicHue" label="知覚的色相" @change="redraw()"/>

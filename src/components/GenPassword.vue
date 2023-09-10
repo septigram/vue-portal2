@@ -87,7 +87,7 @@ const execCopy = (v: string) => {
 
 <template>
   <div class="genpass">
-    <sept-collapse title="パスワード生成" :showHeader="true">
+    <sept-collapse title="パスワード生成" :showHeader="true" :state="false">
       <el-input v-model="passwd" style="width: 18em;"/>
       <el-button @click="execCopy(passwd)"><el-icon><DocumentCopy/></el-icon></el-button>
       <br/>

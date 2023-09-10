@@ -49,6 +49,10 @@ const convJson = (obj: any) => {
         ins.push({ line: line, token: token });
         if (inObj) {
           const vs2 = [] as string[];
+          if (vs.length > 0 && vs[vs.length - 1].endsWith('{')) {
+            const x = vs.splice(vs.length - 1, 1);
+            vs2.push(x[0]);
+          }
           ins.forEach((s) => vs2.push(s.token));
           vs.push(vs2.join(' '));
         } else {
@@ -71,7 +75,7 @@ const convJson = (obj: any) => {
   
 <template>
   <div class="jsonTool">
-    <sept-collapse title="JSONツール" :showHeader="true">
+    <sept-collapse title="JSONツール" :showHeader="true" :state="false">
       ■整形前 行数：{{ baseJson.split('\n').length }}<br/>
       <el-input type="textarea" :rows="20" v-model="baseJson"/><br/>
       <el-button @click="jsonExpand()"><el-icon><ArrowDown/></el-icon>展開</el-button>
