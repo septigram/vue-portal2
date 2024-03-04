@@ -12,7 +12,7 @@
     "@element-plus/icons-vue": "^2.1.0",
     "axios": "^1.6.7",
     "element-plus": "^2.5.6",
-    "vue": "^3.4.19",
+    "vue": "^3.4.21",
     "vue-draggable-next": "^2.2.1"
   },
   "devDependencies": {
