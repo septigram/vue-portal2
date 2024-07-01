@@ -10,14 +10,15 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
+    "axios": "^1.6.7",
     "axios": "^1.7.2",
-    "element-plus": "^2.7.1",
+    "element-plus": "^2.7.6",
     "vue": "^3.4.31",
     "vue-draggable-next": "^2.2.1"
   },
   "devDependencies": {
     "typescript": "^5.4.5",
     "vite": "^5.2.10",
-    "vue-tsc": "^2.0.14"
+    "vue-tsc": "^2.0.24"
   }
 }
