@@ -13,7 +13,7 @@
     "axios": "^1.6.7",
     "axios": "^1.7.2",
     "element-plus": "^2.7.6",
-    "vue": "^3.4.31",
+    "vue": "^3.4.35",
     "vue-draggable-next": "^2.2.1"
   },
   "devDependencies": {
