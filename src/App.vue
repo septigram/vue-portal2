@@ -98,7 +98,7 @@ const onUpdate = () => {
         </template>
       </li>
     </template>
-    <div class="version">v2.24.916</div>
+    <div class="version">v2.24.1013</div>
     <el-dialog v-model="showComponentEdit" title="表示コンポーネント">
       <div class="componentList">
         <vue-draggable-next v-model="components" el="div" ghost="ghost">
