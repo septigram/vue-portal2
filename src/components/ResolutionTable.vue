@@ -123,6 +123,7 @@ const filteredResolutions = computed(() => {
             <el-table-column prop="height" label="縦(px)"/>
             <el-table-column prop="description" label="備考" width="300"/>
         </el-table>
+        ※Wikipediaより引用
     </sept-collapse>
 </template>
 
