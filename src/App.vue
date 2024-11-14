@@ -17,6 +17,7 @@ import MonthlyCalender from './components/MonthlyCalender.vue';
 import SudokuGame from './components/SudokuGame.vue';
 import TimeConvert from './components/TimeConvert.vue';
 import CopyAndPaste from './components/CopyAndPaste.vue';
+import ResolutionTable from './components/ResolutionTable.vue';
 
 interface ComponentInfo {
   name: string,
@@ -44,6 +45,7 @@ const defaultComponents: ComponentInfo[] = [
   { name: 'ナンプレ', type: 'sudoku', checked: true },
   { name: 'Bulls and Cows', type: 'bulls-and-cows', checked: true },
   { name: 'Copy and Paste', type: 'copy-and-paste', checked: true },
+  { name: '解像度表', type: 'resolution-table', checked: true },
 ];
 const components = ref(defaultComponents);
 
@@ -120,6 +122,7 @@ const onUpdate = () => {
           <template v-else-if="component.type === 'gen-password'"><GenPassword/></template>
           <template v-else-if="component.type === 'bulls-and-cows'"><BullsAndCowsGame/></template>
           <template v-else-if="component.type === 'copy-and-paste'"><CopyAndPaste/></template>
+          <template v-else-if="component.type === 'resolution-table'"><ResolutionTable/></template>
           <template v-else>
             unknown:{{component.type}}
           </template>
