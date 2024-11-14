@@ -102,7 +102,11 @@ To build.
 ### Bulls and Cows
 
 * Bulls and Cowsが表示される。
- 
+
+### Copy and Paste
+
+* 登録した文字列をコピーできる。文字列は曜日で表示・非表示を設定できる。
+
 ## memo
 
 2023/09/01 vue-portal1がメンテナンス不能になったのでvue-portal2にマイグレーション。webpack＋vue2＋element-uiからvite＋vue3＋element-plusに変更。

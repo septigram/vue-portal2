@@ -16,6 +16,7 @@ import MemoTool from './components/MemoTool.vue';
 import MonthlyCalender from './components/MonthlyCalender.vue';
 import SudokuGame from './components/SudokuGame.vue';
 import TimeConvert from './components/TimeConvert.vue';
+import CopyAndPaste from './components/CopyAndPaste.vue';
 
 interface ComponentInfo {
   name: string,
@@ -23,8 +24,10 @@ interface ComponentInfo {
   checked: boolean,
 };
 
+const version = 'v2.24.1114';
+
 const showComponentEdit = ref(false);
-const components = ref([
+const defaultComponents: ComponentInfo[] = [
   { name: '時計', type: 'clock', checked: true },
   { name: 'カレンダー', type: 'calendar', checked: true },
   { name: 'ブックマーク', type: 'address-list', checked: true },
@@ -40,7 +43,9 @@ const components = ref([
   { name: 'パスワード生成', type: 'gen-password', checked: true },
   { name: 'ナンプレ', type: 'sudoku', checked: true },
   { name: 'Bulls and Cows', type: 'bulls-and-cows', checked: true },
-] as ComponentInfo[]);
+  { name: 'Copy and Paste', type: 'copy-and-paste', checked: true },
+];
+const components = ref(defaultComponents);
 
 onMounted(() => { initialize(); });
 
@@ -51,17 +56,36 @@ const initialize = () => {
   const comp = window.localStorage.getItem('vue-portal1-comp')
   if (comp) {
     components.value = JSON.parse(comp) as ComponentInfo[];
-    let hasBullsAndCows = false;
-    components.value.forEach((c: ComponentInfo) => { if (c.type === 'bulls-and-cows') { hasBullsAndCows = true; }});
-    if (!hasBullsAndCows) {
-      components.value.push({
-        name: 'Bulls and Cows',
-        type: 'bulls-and-cows',
-        checked: true,
-      });
+    const checks: boolean[] = new Array(defaultComponents.length);
+    const remove: boolean[] = new Array(defaultComponents.length);
+    for (let i = 0; i < components.value.length; i++) {
+      const c = components.value[i];
+      const idx = defaultComponents.findIndex((d) => d.type === c.type);
+      if (idx >= 0) {
+        checks[idx] = true;
+      } else {
+        remove[i] = true;
+      }
+    }
+    for (let i = 0; i < defaultComponents.length; i++) {
+      if (checks[i] === undefined) {
+        components.value.push(defaultComponents[i]);
+      }
+    }
+    for (let i = remove.length - 1; i >= 0; i--) {
+      if (remove[i]) {
+        components.value.splice(i, 1);
+      }
     }
   }
 };
+
+const onClear = () => {
+  if (window.localStorage && window.confirm('初期化しますか？')) {
+    window.localStorage.removeItem('vue-portal1-comp');
+    components.value = defaultComponents;
+  }
+}
 
 const onUpdate = () => {
   showComponentEdit.value = false;
@@ -95,10 +119,14 @@ const onUpdate = () => {
           <template v-else-if="component.type === 'check-today'"><CheckToday/></template>
           <template v-else-if="component.type === 'gen-password'"><GenPassword/></template>
           <template v-else-if="component.type === 'bulls-and-cows'"><BullsAndCowsGame/></template>
+          <template v-else-if="component.type === 'copy-and-paste'"><CopyAndPaste/></template>
+          <template v-else>
+            unknown:{{component.type}}
+          </template>
         </template>
       </li>
     </template>
-    <div class="version">v2.24.1013</div>
+    <div class="version">{{ version }}</div>
     <el-dialog v-model="showComponentEdit" title="表示コンポーネント">
       <div class="componentList">
         <vue-draggable-next v-model="components" el="div" ghost="ghost">
@@ -111,6 +139,9 @@ const onUpdate = () => {
       </div>
       <el-row type="flex" justify="center">
         <el-button type="primary" @click='onUpdate()'>閉じる</el-button>
+        <!--
+        <el-button @click='onClear()'>初期化</el-button>
+        -->
       </el-row>
     </el-dialog>
   </div>
