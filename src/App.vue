@@ -25,7 +25,7 @@ interface ComponentInfo {
   checked: boolean,
 };
 
-const version = 'v2.24.1114';
+const version = 'v2.24.1117';
 
 const showComponentEdit = ref(false);
 const defaultComponents: ComponentInfo[] = [
