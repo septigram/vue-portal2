@@ -25,14 +25,14 @@ interface ComponentInfo {
   checked: boolean,
 };
 
-const version = 'v2.24.1217';
+const version = 'v2.25.107';
 
 const showComponentEdit = ref(false);
 const defaultComponents: ComponentInfo[] = [
   { name: '時計', type: 'clock', checked: true },
   { name: 'カレンダー', type: 'calendar', checked: true },
   { name: 'ブックマーク', type: 'address-list', checked: true },
-  { name: '計算機', type: 'calcurator', checked: true },
+  { name: '計算機', type: 'calculator', checked: true },
   { name: 'JSON変換', type: 'json-tool', checked: true },
   { name: 'ASCII表', type: 'ascii', checked: true },
   { name: 'URL変換', type: 'code-convert', checked: true },
@@ -108,7 +108,7 @@ const onUpdate = () => {
         <template v-if="component.checked">
           <template v-if="component.type === 'clock'"><AnalogClock/></template>
           <template v-else-if="component.type === 'calendar'"><MonthlyCalender/></template>
-          <template v-else-if="component.type === 'calcurator'"><CalculatorTool/></template>
+          <template v-else-if="component.type === 'calculator'"><CalculatorTool/></template>
           <template v-else-if="component.type === 'address-list'"><AddressList/></template>
           <template v-else-if="component.type === 'json-tool'"><JsonTool/></template>
           <template v-else-if="component.type === 'color-wheel'"><ColorWheel/></template>
