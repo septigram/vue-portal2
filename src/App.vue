@@ -27,7 +27,7 @@ interface ComponentInfo {
 
 // v2.25.401 dependsbot
 // v2.25.519 画面解像度にFHD追記
-const version = 'v2.25.401';
+const version = 'v2.25.519';
 
 const showComponentEdit = ref(false);
 const defaultComponents: ComponentInfo[] = [
