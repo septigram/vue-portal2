@@ -50,6 +50,7 @@ const resolutions = [
 {label:"WSXGA+",width:1680,height:1050,aspect:"8:5 (16:10)",major:false,description:"各社ノートパソコンに採用される。辺の長さが縦横ともにWUXGAとWXGA+の中間。"},
 {label:"WSXGA (Wide Super XGA)",width:1600,height:1024,aspect:"25:16 （約16:10）",major:false,description:"代表例：（ブラウン管ディスプレイ）1996年10月にソニーが発表した24型「GDM-W900」で表示可能な解像度の一つ[21]"},
 {label:"UXGA (Ultra XGA)",width:1600,height:1200,aspect:"0.16875",major:true,description:"各社ノートパソコンに採用される。"},
+{label:"FHD(Full-HD,1080p)",width:1920,height:1080,aspect:"0.672916666666667",major:true,description:"日本の液晶テレビに多い解像度の一つであり、日本では「フルハイビジョン」の別名も多く用いられる。ピクセル数が2の21乗よりやや少ない。"},
 {label:"DCI 2K",width:2048,height:1080,aspect:"256:135 （約17:9）",major:false,description:"映画のデジタル撮影規格として有名。"},
 {label:"WUXGA (Wide Ultra-XGA)",width:1920,height:1200,aspect:"8:5 (16:10)",major:true,description:"（ブラウン管ディスプレイ）1996年10月にソニーが発表した24型「GDM-W900」で表示可能な解像度の一つ[21]"},
 {label:"QWXGA",width:2048,height:1152,aspect:"0.672916666666667",major:false,description:"（液晶ディスプレイ）2008年11月17日に日本サムスンが発表した23型「SyncMaster 2343BW」[27]"},
