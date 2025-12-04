@@ -28,7 +28,8 @@ interface ComponentInfo {
 // v2.25.401 dependsbot
 // v2.25.519 画面解像度にFHD追記
 // v2.25.930 2026年休日追加。
-const version = 'v2.25.930';
+// v2.25.1205 septigram-calendar-jpを使用。
+const version = 'v2.25.1205';
 
 const showComponentEdit = ref(false);
 const defaultComponents: ComponentInfo[] = [

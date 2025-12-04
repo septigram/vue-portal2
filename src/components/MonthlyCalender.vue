@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeMount } from 'vue';
 import SeptCollapse from './SeptCollapse.vue';
-
+import CalendarJp, { type HolidayRule } from 'septigram-calendar-jp'
 interface Day {
   ymd: string,
   holiday?: string,
@@ -27,156 +27,29 @@ const calendars = ref([] as Calendar[]);
 const diffMonth = ref(0);
 const dayOfWeekHead = ref(0); // 0:日曜始まり, 1:月曜始まり
 const heads = [ 'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT' ];
-const holidays: { [key: string]: string } = {
-  '2019/1/1': '元日',
-  '2019/1/14': '成人の日',
-  '2019/2/11': '建国記念の日',
-  '2019/3/21': '春分の日',
-  '2019/4/29': '昭和の日',
-  '2019/4/30': '休日',
-  '2019/5/1': '休日（祝日扱い）',
-  '2019/5/2': '休日',
-  '2019/5/3': '憲法記念日',
-  '2019/5/4': 'みどりの日',
-  '2019/5/5': 'こどもの日',
-  '2019/5/6': '休日',
-  '2019/7/15': '海の日',
-  '2019/8/11': '山の日',
-  '2019/8/12': '休日',
-  '2019/9/16': '敬老の日',
-  '2019/9/23': '秋分の日',
-  '2019/10/14': '体育の日（スポーツの日）',
-  '2019/10/22': '休日（祝日扱い）',
-  '2019/11/3': '文化の日',
-  '2019/11/4': '休日',
-  '2019/11/23': '勤労感謝の日',
-  '2020/1/1': '元日',
-  '2020/1/13': '成人の日',
-  '2020/2/11': '建国記念の日',
-  '2020/2/23': '天皇誕生日',
-  '2020/2/24': '休日',
-  '2020/3/20': '春分の日',
-  '2020/4/29': '昭和の日',
-  '2020/5/3': '憲法記念日',
-  '2020/5/4': 'みどりの日',
-  '2020/5/5': 'こどもの日',
-  '2020/5/6': '休日',
-  '2020/7/23': '海の日',
-  '2020/7/24': 'スポーツの日',
-  '2020/8/10': '山の日',
-  '2020/9/21': '敬老の日',
-  '2020/9/22': '秋分の日',
-  '2020/11/3': '文化の日',
-  '2020/11/23': '勤労感謝の日',
-  '2021/1/1': '元日',
-  '2021/1/11': '成人の日',
-  '2021/2/11': '建国記念の日',
-  '2021/2/23': '天皇誕生日',
-  '2021/3/20': '春分の日',
-  '2021/4/29': '昭和の日',
-  '2021/5/3': '憲法記念日',
-  '2021/5/4': 'みどりの日',
-  '2021/5/5': 'こどもの日',
-  '2021/7/22': '海の日',
-  '2021/7/23': 'スポーツの日',
-  '2021/8/8': '山の日',
-  '2021/8/9': '休日',
-  '2021/9/20': '敬老の日',
-  '2021/9/23': '秋分の日',
-  '2021/11/3': '文化の日',
-  '2021/11/23': '勤労感謝の日',
-  '2022/1/1': '元日',
-  '2022/1/10': '成人の日',
-  '2022/2/11': '建国記念の日',
-  '2022/2/23': '天皇誕生日',
-  '2022/3/21': '春分の日',
-  '2022/4/29': '昭和の日',
-  '2022/5/3': '憲法記念日',
-  '2022/5/4': 'みどりの日',
-  '2022/5/5': 'こどもの日',
-  '2022/7/18': '海の日',
-  '2022/8/11': '山の日',
-  '2022/9/19': '敬老の日',
-  '2022/9/23': '秋分の日',
-  '2022/10/10': 'スポーツの日',
-  '2022/11/3': '文化の日',
-  '2022/11/23': '勤労感謝の日',
-  '2023/1/1':'元日',
-  '2023/1/2':'休日',
-  '2023/1/9':'成人の日',
-  '2023/2/11':'建国記念の日',
-  '2023/2/23':'天皇誕生日',
-  '2023/3/21':'春分の日',
-  '2023/4/29':'昭和の日',
-  '2023/5/3':'憲法記念日',
-  '2023/5/4':'みどりの日',
-  '2023/5/5':'こどもの日',
-  '2023/7/17':'海の日',
-  '2023/8/11':'山の日',
-  '2023/9/18':'敬老の日',
-  '2023/9/23':'秋分の日',
-  '2023/10/9':'スポーツの日',
-  '2023/11/3':'文化の日',
-  '2023/11/23':'勤労感謝の日',
-  '2024/1/1':'元日',
-  '2024/1/8':'成人の日',
-  '2024/2/11':'建国記念の日',
-  '2024/2/12':'休日',
-  '2024/2/23':'天皇誕生日',
-  '2024/3/20':'春分の日',
-  '2024/4/29':'昭和の日',
-  '2024/5/3':'憲法記念日',
-  '2024/5/4':'みどりの日',
-  '2024/5/5':'こどもの日',
-  '2024/5/6':'休日',
-  '2024/7/15':'海の日',
-  '2024/8/11':'山の日',
-  '2024/8/12':'休日',
-  '2024/9/16':'敬老の日',
-  '2024/9/22':'秋分の日',
-  '2024/9/23':'休日',
-  '2024/10/14':'スポーツの日',
-  '2024/11/3':'文化の日',
-  '2024/11/4':'休日',
-  '2024/11/23':'勤労感謝の日',
-  '2025/1/1':'元日',
-  '2025/1/13':'成人の日',
-  '2025/2/11':'建国記念の日',
-  '2025/2/23':'天皇誕生日',
-  '2025/2/24':'休日',
-  '2025/3/20':'春分の日',
-  '2025/4/29':'昭和の日',
-  '2025/5/3':'憲法記念日',
-  '2025/5/4':'みどりの日',
-  '2025/5/5':'こどもの日',
-  '2025/5/6':'休日',
-  '2025/7/21':'海の日',
-  '2025/8/11':'山の日',
-  '2025/9/15':'敬老の日',
-  '2025/9/23':'秋分の日',
-  '2025/10/13':'スポーツの日',
-  '2025/11/3':'文化の日',
-  '2025/11/23':'勤労感謝の日',
-  '2025/11/24':'休日',
-'2026/1/1':'元日',
-'2026/1/12':'成人の日',
-'2026/2/11':'建国記念の日',
-'2026/2/23':'天皇誕生日',
-'2026/3/20':'春分の日',
-'2026/4/29':'昭和の日',
-'2026/5/3':'憲法記念日',
-'2026/5/4':'みどりの日',
-'2026/5/5':'こどもの日',
-'2026/5/6':'休日',
-'2026/7/20':'海の日',
-'2026/8/11':'山の日',
-'2026/9/21':'敬老の日',
-'2026/9/22':'休日',
-'2026/9/23':'秋分の日',
-'2026/10/12':'スポーツの日',
-'2026/11/3':'文化の日',
-'2026/11/23':'勤労感謝の日',
-};
+const calendarJp = new CalendarJp()
+
+onBeforeMount(() =>
+{
+  try {
+    calendarJp.addRule({
+      name: '年始',
+      title: '年始',
+      yearRange: { begin: 2010, end: 9999 },
+      month: 1,
+      dateRange: { begin: 2, end: 3 }
+    } as HolidayRule);
+    calendarJp.addRule({
+      name: '年末',
+      title: '年末',
+      yearRange: { begin: 2010, end: 9999 },
+      month: 12,
+      dateRange: { begin: 29, end: 31 }
+    } as HolidayRule);
+  } catch (error) {
+    console.error(error);
+  }
+});
 
 onMounted(() => {
   updateCalender();
@@ -201,6 +74,13 @@ const updateCalender = () => {
   addCalendar(nextMonth.getFullYear(), nextMonth.getMonth() + 1);
 };
 
+function getYmd(date: Date): string {
+  const y = date.getFullYear();
+  const m = date.getMonth() + 1;
+  const d = date.getDate();
+  return y + (m < 10 ? '-0' : '-') + m + (d < 10 ? '-0' : '-') + d;
+}
+
 const addCalendar = (year: number, month: number) => {
   const today = new Date();
   const calendar = {
@@ -217,10 +97,10 @@ const addCalendar = (year: number, month: number) => {
       days: []
     } as Week;
     for (let d = 0; d < 7; d++) {
-      const ymd = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();
+      const ymd = getYmd(date);
       const day = {
         ymd: ymd,
-        holiday: holidays[ymd],
+        holiday: calendarJp.getHoliday(ymd),
         dateObject: new Date(date.getTime()),
         dayOfWeek: date.getDay(),
         date: date.getDate(),
@@ -253,28 +133,32 @@ const n2 = (n: number): string => {
       <el-button @click="addMonth(-1)" circle size="small" class="middle"><el-icon><ArrowLeft/></el-icon></el-button>
       <template v-for="(calendar, ci) in calendars" :key="ci">
         <table class="calendar">
-          <tr>
-            <th colspan="7" class="HEAD">{{calendar.year}}/{{calendar.month}}</th>
-          </tr>
-          <tr>
-            <template v-for="(head, hi) in heads" :key="hi">
-              <th :class="heads[(hi + dayOfWeekHead) % 7]">{{heads[(hi + dayOfWeekHead) % 7]}}</th>
-            </template>
-          </tr>
-          <template v-for="(week, wi) in calendar.weeks" :key="wi">
+          <thead>
             <tr>
-              <template v-for="(day, di) in week.days" :key="di">
-                <template v-if="day.inMonth">
-                  <td :class="day.class" :title="day.holiday">
-                    {{day.date}}
-                  </td>
-                </template>
-                <template v-else>
-                  <td class="NONE">&nbsp;</td>
-                </template>
+              <th colspan="7" class="HEAD">{{calendar.year}}/{{calendar.month}}</th>
+            </tr>
+            <tr>
+              <template v-for="(head, hi) in heads" :key="hi">
+                <th :class="heads[(hi + dayOfWeekHead) % 7]">{{heads[(hi + dayOfWeekHead) % 7]}}</th>
               </template>
             </tr>
-          </template>
+          </thead>
+          <tbody>
+            <template v-for="(week, wi) in calendar.weeks" :key="wi">
+              <tr>
+                <template v-for="(day, di) in week.days" :key="di">
+                  <template v-if="day.inMonth">
+                    <td :class="day.class" :title="day.holiday">
+                      {{day.date}}
+                    </td>
+                  </template>
+                  <template v-else>
+                    <td class="NONE">&nbsp;</td>
+                  </template>
+                </template>
+              </tr>
+            </template>
+          </tbody>
         </table>
       </template>
       <el-button @click="addMonth(+1)" circle size="small" class="middle"><el-icon><ArrowRight/></el-icon></el-button>
@@ -357,9 +241,6 @@ td.SAT {
 }
 td.HOLIDAY {
   border-color: red;
-}
-td.HOLIDAY.SAT, td.HOLIDAY.SUN {
-  border-color: transparent;
 }
 td.SUN.TODAY {
   color: #fff;

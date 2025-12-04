@@ -12,6 +12,8 @@
     "@element-plus/icons-vue": "^2.3.2",
     "@vitejs/plugin-vue": "^6.0.2",
     "axios": "^1.13.2",
+    "element-plus": "^2.11.9",
+    "septigram-calendar-jp": "^0.3.3",
     "vue": "^3.5.25",
     "vue-draggable-next": "^2.3.0"
   },
