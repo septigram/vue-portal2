@@ -18,6 +18,13 @@ interface Row {
 const asciiText = ref('');
 const codeTable = ref([] as Row[]);
 const cols = ref([] as Col[]);
+const labels = [
+  'NUL', 'SOH', 'STX', 'ETX', 'EOT', 'ENQ', 'ACK', 'BEL',
+  'BS', 'TAB', 'LF', 'VT', 'FF', 'CR', 'SO', 'SI',
+  'DLE', 'DC1', 'DC2', 'DC3', 'DC4', 'NAK', 'SYN', 'ETB',
+  'CAN', 'EM', 'SUB', 'ESC', 'FS', 'GS', 'RS', 'US',
+  'SP',
+] as string[];
 
 onMounted(() => {
   const vs = [] as string[];
@@ -34,7 +41,7 @@ onMounted(() => {
       hex: '',
     });
   }
-  for (let y = 2; y < 8; y++) {
+  for (let y = 0; y < 8; y++) {
     const row = {
       row: y,
       label: y.toString(16) + 'x',
@@ -48,7 +55,7 @@ onMounted(() => {
         col: x,
         code: n,
         hex: hex,
-        label: decodeURIComponent('%' + hex),
+        label: n == 0x7f ? 'DEL' : (n <= 0x20 ? labels[n] : decodeURIComponent('%' + hex)),
       } as Col);
     }
   }
@@ -70,7 +77,7 @@ onMounted(() => {
           <tr>
             <th>{{row.label}}</th>
             <template v-for="(cell, ci) in row.cells" :key="ci">
-              <td>{{cell.label}}</td>
+              <td :title="cell.hex" :class="{ 'small': cell.code <= 0x20 || cell.code == 0x7f }">{{cell.label}}</td>
             </template>
           </tr>
         </template>
@@ -86,5 +93,9 @@ div.ascii table, div.ascii th, div.ascii td {
   border-collapse: collapse;
   border: 1px solid gray;
   text-align: center;
+}
+td.small {
+  font-size: x-small;
+  color: #999;
 }
 </style>

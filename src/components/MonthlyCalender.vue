@@ -27,7 +27,7 @@ const calendars = ref([] as Calendar[]);
 const diffMonth = ref(0);
 const dayOfWeekHead = ref(0); // 0:日曜始まり, 1:月曜始まり
 const heads = [ 'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT' ];
-const calendarJp = new CalendarJp()
+const calendarJp = new CalendarJp();
 
 onBeforeMount(() =>
 {
@@ -240,7 +240,7 @@ td.SAT {
   color: #02a;
 }
 td.HOLIDAY {
-  border-color: red;
+  border-color: #e96;
 }
 td.SUN.TODAY {
   color: #fff;
