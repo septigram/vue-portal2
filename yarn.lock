@@ -430,10 +430,10 @@ dunder-proto@^1.0.1:
     es-errors "^1.3.0"
     gopd "^1.2.0"
 
-element-plus@^2.13.5:
-  version "2.13.5"
-  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-2.13.5.tgz#8c7d0aacd6dee7dcde9026cca59a4be9e61615b5"
-  integrity sha512-dmY24fhSREfZN/PuUt0YZigMso7wWzl+B5o+YKNN15kQIn/0hzamsPU+ebj9SES0IbUqsLX1wkrzYmzU8VrVOQ==
+element-plus@^2.13.6:
+  version "2.13.6"
+  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-2.13.6.tgz#965a38dce9638538e6056e1908e184cabe95b9f0"
+  integrity sha512-XHgwXr8Fjz6i+6BaqFhAbae/dJbG7bBAAlHrY3pWL7dpj+JcqcOyKYt4Oy5KP86FQwS1k4uIZDjCx2FyUR5lDg==
   dependencies:
     "@ctrl/tinycolor" "^4.2.0"
     "@element-plus/icons-vue" "^2.3.2"
@@ -449,6 +449,7 @@ element-plus@^2.13.5:
     lodash-unified "^1.0.3"
     memoize-one "^6.0.0"
     normalize-wheel-es "^1.2.0"
+    vue-component-type-helpers "^3.2.4"
 
 entities@^7.0.1:
   version "7.0.1"
@@ -798,6 +799,11 @@ vscode-uri@^3.0.8:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/vscode-uri/-/vscode-uri-3.0.8.tgz#1770938d3e72588659a172d0fd4642780083ff9f"
   integrity sha512-AyFQ0EVmsOZOlAnxoFOGOq1SQDWAB7C6aqMGS23svWAllfOaxbuFvcT8D1i8z3Gyn8fraVeZNNmN6e9bxxXkKw==
+
+vue-component-type-helpers@^3.2.4:
+  version "3.2.6"
+  resolved "https://registry.yarnpkg.com/vue-component-type-helpers/-/vue-component-type-helpers-3.2.6.tgz#49976f7ad879df75d884cf156b8a068a6f9a8f65"
+  integrity sha512-O02tnvIfOQVmnvoWwuSydwRoHjZVt8UEBR+2p4rT35p8GAy5VTlWP8o5qXfJR/GWCN0nVZoYWsVUvx2jwgdBmQ==
 
 vue-draggable-next@^2.3.0:
   version "2.3.0"
