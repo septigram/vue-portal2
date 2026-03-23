@@ -284,10 +284,10 @@
     "@vue/compiler-dom" "3.5.30"
     "@vue/shared" "3.5.30"
 
-"@vue/language-core@3.2.5":
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/@vue/language-core/-/language-core-3.2.5.tgz#f80d8ccfa0492e5edd3763513ac6416327dd4c87"
-  integrity sha512-d3OIxN/+KRedeM5wQ6H6NIpwS3P5gC9nmyaHgBk+rO6dIsjY+tOh4UlPpiZbAh3YtLdCGEX4M16RmsBqPmJV+g==
+"@vue/language-core@3.2.6":
+  version "3.2.6"
+  resolved "https://registry.yarnpkg.com/@vue/language-core/-/language-core-3.2.6.tgz#afe49fe5f2009eb0adaf80af72b01e09de2ba0fc"
+  integrity sha512-xYYYX3/aVup576tP/23sEUpgiEnujrENaoNRbaozC1/MA9I6EGFQRJb4xrt/MmUCAGlxTKL2RmT8JLTPqagCkg==
   dependencies:
     "@volar/language-core" "2.4.28"
     "@vue/compiler-dom" "^3.5.0"
@@ -425,10 +425,10 @@ dunder-proto@^1.0.1:
     es-errors "^1.3.0"
     gopd "^1.2.0"
 
-element-plus@^2.13.5:
-  version "2.13.5"
-  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-2.13.5.tgz#8c7d0aacd6dee7dcde9026cca59a4be9e61615b5"
-  integrity sha512-dmY24fhSREfZN/PuUt0YZigMso7wWzl+B5o+YKNN15kQIn/0hzamsPU+ebj9SES0IbUqsLX1wkrzYmzU8VrVOQ==
+element-plus@^2.13.6:
+  version "2.13.6"
+  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-2.13.6.tgz#965a38dce9638538e6056e1908e184cabe95b9f0"
+  integrity sha512-XHgwXr8Fjz6i+6BaqFhAbae/dJbG7bBAAlHrY3pWL7dpj+JcqcOyKYt4Oy5KP86FQwS1k4uIZDjCx2FyUR5lDg==
   dependencies:
     "@ctrl/tinycolor" "^4.2.0"
     "@element-plus/icons-vue" "^2.3.2"
@@ -444,6 +444,7 @@ element-plus@^2.13.5:
     lodash-unified "^1.0.3"
     memoize-one "^6.0.0"
     normalize-wheel-es "^1.2.0"
+    vue-component-type-helpers "^3.2.4"
 
 entities@^7.0.1:
   version "7.0.1"
@@ -793,18 +794,23 @@ vscode-uri@^3.0.8:
   resolved "https://registry.yarnpkg.com/vscode-uri/-/vscode-uri-3.0.8.tgz#1770938d3e72588659a172d0fd4642780083ff9f"
   integrity sha512-AyFQ0EVmsOZOlAnxoFOGOq1SQDWAB7C6aqMGS23svWAllfOaxbuFvcT8D1i8z3Gyn8fraVeZNNmN6e9bxxXkKw==
 
+vue-component-type-helpers@^3.2.4:
+  version "3.2.6"
+  resolved "https://registry.yarnpkg.com/vue-component-type-helpers/-/vue-component-type-helpers-3.2.6.tgz#49976f7ad879df75d884cf156b8a068a6f9a8f65"
+  integrity sha512-O02tnvIfOQVmnvoWwuSydwRoHjZVt8UEBR+2p4rT35p8GAy5VTlWP8o5qXfJR/GWCN0nVZoYWsVUvx2jwgdBmQ==
+
 vue-draggable-next@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/vue-draggable-next/-/vue-draggable-next-2.3.0.tgz#ba83154f60b8a3c24059c18b8060b72200a4c673"
   integrity sha512-ymbY0UIwfSdg0iDN/iyNNwUrTqZ/6KbPryzsvTNXBLuDCuOBdNijSK8yynNtmiSj6RapTPQfjLGQdJrZkzBd2w==
 
-vue-tsc@^3.2.5:
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/vue-tsc/-/vue-tsc-3.2.5.tgz#9bdad91232f4187527d2245883116a56b0b955b7"
-  integrity sha512-/htfTCMluQ+P2FISGAooul8kO4JMheOTCbCy4M6dYnYYjqLe3BExZudAua6MSIKSFYQtFOYAll7XobYwcpokGA==
+vue-tsc@^3.2.6:
+  version "3.2.6"
+  resolved "https://registry.yarnpkg.com/vue-tsc/-/vue-tsc-3.2.6.tgz#efeb12a6166d531304d2e1602b550254309be15d"
+  integrity sha512-gYW/kWI0XrwGzd0PKc7tVB/qpdeAkIZLNZb10/InizkQjHjnT8weZ/vBarZoj4kHKbUTZT/bAVgoOr8x4NsQ/Q==
   dependencies:
     "@volar/typescript" "2.4.28"
-    "@vue/language-core" "3.2.5"
+    "@vue/language-core" "3.2.6"
 
 vue@^3.5.13, vue@^3.5.30:
   version "3.5.30"
