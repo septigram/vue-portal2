@@ -180,15 +180,15 @@
   resolved "https://registry.yarnpkg.com/@rolldown/binding-win32-x64-msvc/-/binding-win32-x64-msvc-1.0.0-rc.15.tgz#cef11bc89149f3a77771727be75490fbb13ae193"
   integrity sha512-3P2A8L+x75qavWLe/Dll3EYBJLQmtkJN8rfh+U/eR3MqMgL/h98PhYI+JFfXuDPgPeCB7iZAKiqii5vqOvnA0g==
 
-"@rolldown/pluginutils@1.0.0-rc.15":
-  version "1.0.0-rc.15"
-  resolved "https://registry.yarnpkg.com/@rolldown/pluginutils/-/pluginutils-1.0.0-rc.15.tgz#e75d7731593e195d23710f9ff49bf5c745c96682"
-  integrity sha512-UromN0peaE53IaBRe9W7CjrZgXl90fqGpK+mIZbA3qSTeYqg3pqpROBdIPvOG3F5ereDHNwoHBI2e50n1BDr1g==
-
 "@rolldown/pluginutils@1.0.0-rc.13":
   version "1.0.0-rc.13"
   resolved "https://registry.yarnpkg.com/@rolldown/pluginutils/-/pluginutils-1.0.0-rc.13.tgz#093a01af0cde13552f058544fcadf12e9b522c3b"
   integrity sha512-3ngTAv6F/Py35BsYbeeLeecvhMKdsKm4AoOETVhAA+Qc8nrA2I0kF7oa93mE9qnIurngOSpMnQ0x2nQY2FPviA==
+
+"@rolldown/pluginutils@1.0.0-rc.15":
+  version "1.0.0-rc.15"
+  resolved "https://registry.yarnpkg.com/@rolldown/pluginutils/-/pluginutils-1.0.0-rc.15.tgz#e75d7731593e195d23710f9ff49bf5c745c96682"
+  integrity sha512-UromN0peaE53IaBRe9W7CjrZgXl90fqGpK+mIZbA3qSTeYqg3pqpROBdIPvOG3F5ereDHNwoHBI2e50n1BDr1g==
 
 "@tybys/wasm-util@^0.10.1":
   version "0.10.1"
@@ -284,18 +284,18 @@
     "@vue/compiler-dom" "3.5.32"
     "@vue/shared" "3.5.32"
 
-"@vue/language-core@3.2.6":
-  version "3.2.6"
-  resolved "https://registry.yarnpkg.com/@vue/language-core/-/language-core-3.2.6.tgz#afe49fe5f2009eb0adaf80af72b01e09de2ba0fc"
-  integrity sha512-xYYYX3/aVup576tP/23sEUpgiEnujrENaoNRbaozC1/MA9I6EGFQRJb4xrt/MmUCAGlxTKL2RmT8JLTPqagCkg==
+"@vue/language-core@3.2.7":
+  version "3.2.7"
+  resolved "https://registry.yarnpkg.com/@vue/language-core/-/language-core-3.2.7.tgz#06507ace715e0c22cf686ca2231f2a40f51befe2"
+  integrity sha512-Gn4q/tRxbpVGLEuARQ43p3YELlNAFgRUVCgW9U5Cr+5q4vfD2bWDWpl3ABbJMXUt5xlE1dF8dkigg2aUq7JYYw==
   dependencies:
     "@volar/language-core" "2.4.28"
     "@vue/compiler-dom" "^3.5.0"
     "@vue/shared" "^3.5.0"
-    alien-signals "^3.0.0"
+    alien-signals "^3.1.2"
     muggle-string "^0.4.1"
     path-browserify "^1.0.1"
-    picomatch "^4.0.2"
+    picomatch "^4.0.4"
 
 "@vue/reactivity@3.5.32":
   version "3.5.32"
@@ -357,10 +357,10 @@
   dependencies:
     vue "^3.5.13"
 
-alien-signals@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/alien-signals/-/alien-signals-3.0.0.tgz#e1e5259a3bfcec740a46ee2c67f176184be89457"
-  integrity sha512-JHoRJf18Y6HN4/KZALr3iU+0vW9LKG+8FMThQlbn4+gv8utsLIkwpomjElGPccGeNwh0FI2HN6BLnyFLo6OyLQ==
+alien-signals@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/alien-signals/-/alien-signals-3.1.2.tgz#26e623e3ed81e401df1a7c503f726e2288a4fa02"
+  integrity sha512-d9dYqZTS90WLiU0I5c6DHj/HcKkF8ZyGN3G5x8wSbslulz70KOxaqCT0hQCo9KOyhVqzqGojvNdJXoTumZOtcw==
 
 async-validator@^4.2.5:
   version "4.2.5"
@@ -705,7 +705,7 @@ picocolors@^1.1.1:
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.1.1.tgz#3d321af3eab939b083c8f929a1d12cda81c26b6b"
   integrity sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==
 
-picomatch@^4.0.2, picomatch@^4.0.3, picomatch@^4.0.4:
+picomatch@^4.0.3, picomatch@^4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.4.tgz#fd6f5e00a143086e074dffe4c924b8fb293b0589"
   integrity sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==
@@ -804,13 +804,13 @@ vue-draggable-next@^2.3.0:
   resolved "https://registry.yarnpkg.com/vue-draggable-next/-/vue-draggable-next-2.3.0.tgz#ba83154f60b8a3c24059c18b8060b72200a4c673"
   integrity sha512-ymbY0UIwfSdg0iDN/iyNNwUrTqZ/6KbPryzsvTNXBLuDCuOBdNijSK8yynNtmiSj6RapTPQfjLGQdJrZkzBd2w==
 
-vue-tsc@^3.2.6:
-  version "3.2.6"
-  resolved "https://registry.yarnpkg.com/vue-tsc/-/vue-tsc-3.2.6.tgz#efeb12a6166d531304d2e1602b550254309be15d"
-  integrity sha512-gYW/kWI0XrwGzd0PKc7tVB/qpdeAkIZLNZb10/InizkQjHjnT8weZ/vBarZoj4kHKbUTZT/bAVgoOr8x4NsQ/Q==
+vue-tsc@^3.2.7:
+  version "3.2.7"
+  resolved "https://registry.yarnpkg.com/vue-tsc/-/vue-tsc-3.2.7.tgz#3e9a3a759f3e8fe4681ae628c3746aee00a5d1ff"
+  integrity sha512-zc1tL3HoQni1zGTGrwBVRQb7rGP5SWdu/m4rGB6JcnAC5MT5LFZIxF7Y+EJEnt4hGF23d60rXH7gRjHGb5KQQQ==
   dependencies:
     "@volar/typescript" "2.4.28"
-    "@vue/language-core" "3.2.6"
+    "@vue/language-core" "3.2.7"
 
 vue@^3.5.13, vue@^3.5.32:
   version "3.5.32"
