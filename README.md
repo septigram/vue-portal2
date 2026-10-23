@@ -7,7 +7,7 @@ To develop.
 To build.
 > yarn build
 
-![image](doc/vue-portal1_1.png)
+![image](docs/vue-portal1_1.png)
 
 ## 機能
 
@@ -66,6 +66,13 @@ To build.
 ### Ascii表
 
 * ASCIIコード表が表示される。
+
+### 文字種の色分け
+
+* 貼り付けた文字列を文字種ごとに色分けして表示する。
+* 文字にホバーすると、文字種、Unicode 表記、SJIS、プロパティが出る。
+
+![文字種の色分け画面](docs/images/unicode-check.png)
 
 ### URL変換
 

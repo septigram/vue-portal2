@@ -1,0 +1,13 @@
+declare module 'unicode-properties' {
+  export function getScript(codePoint: number): string;
+  export function getCategory(codePoint: number): string;
+  export function isAlphabetic(codePoint: number): boolean;
+  export function isDigit(codePoint: number): boolean;
+  export function isPunctuation(codePoint: number): boolean;
+  export function isLowerCase(codePoint: number): boolean;
+  export function isUpperCase(codePoint: number): boolean;
+  export function isTitleCase(codePoint: number): boolean;
+  export function isWhiteSpace(codePoint: number): boolean;
+  export function isBaseForm(codePoint: number): boolean;
+  export function isMark(codePoint: number): boolean;
+}

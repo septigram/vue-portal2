@@ -4,6 +4,7 @@ import { VueDraggableNext } from 'vue-draggable-next';
 import AddressList from './components/AddressList.vue';
 import AnalogClock from './components/AnalogClock.vue';
 import AsciiList from './components/AsciiList.vue';
+import UnicodeCheck from './components/UnicodeCheck.vue';
 import BullsAndCowsGame from './components/BullsAndCowsGame.vue';
 import CalculatorTool from './components/CalculatorTool.vue';
 import CheckToday from './components/CheckToday.vue';
@@ -30,7 +31,8 @@ interface ComponentInfo {
 // v2.25.930 2026年休日追加。
 // v2.25.1205 septigram-calendar-jpを使用。
 // v2.26.113 ASCII表に記号追加。
-const version = 'v2.26.113';
+// v2.26.1023 文字種の色分けを追加。
+const version = 'v2.26.1023';
 
 const showComponentEdit = ref(false);
 const defaultComponents: ComponentInfo[] = [
@@ -40,6 +42,7 @@ const defaultComponents: ComponentInfo[] = [
   { name: '計算機', type: 'calculator', checked: true },
   { name: 'JSON変換', type: 'json-tool', checked: true },
   { name: 'ASCII表', type: 'ascii', checked: true },
+  { name: '文字種の色分け', type: 'unicode-check', checked: true },
   { name: 'URL変換', type: 'code-convert', checked: true },
   { name: 'UNIX時間変換', type: 'time-convert', checked: true },
   { name: 'カラーホイール', type: 'color-wheel', checked: true },
@@ -118,6 +121,7 @@ const onUpdate = () => {
           <template v-else-if="component.type === 'json-tool'"><JsonTool/></template>
           <template v-else-if="component.type === 'color-wheel'"><ColorWheel/></template>
           <template v-else-if="component.type === 'ascii'"><AsciiList/></template>
+          <template v-else-if="component.type === 'unicode-check'"><UnicodeCheck/></template>
           <template v-else-if="component.type === 'code-convert'"><CodeConvert/></template>
           <template v-else-if="component.type === 'time-convert'"><TimeConvert/></template>
           <template v-else-if="component.type === 'grep-tool'"><GrepTool/></template>
