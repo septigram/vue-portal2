@@ -13,6 +13,7 @@ describe('characterProperties', () => {
   it('U+0430 は Cyrillic の小文字である', () => {
     expect(characterProperties(0x430).map((item) => item.name)).toEqual([
       'category',
+      'eastAsianWidth',
       'isAlphabetic',
       'isDigit',
       'isPunctuation',
@@ -24,6 +25,7 @@ describe('characterProperties', () => {
       'isMark',
     ]);
     expect(valueOf(0x430, 'category')).toBe('Ll');
+    expect(valueOf(0x430, 'eastAsianWidth')).toBe('A');
     expect(valueOf(0x430, 'isAlphabetic')).toBe('true');
     expect(valueOf(0x430, 'isDigit')).toBe('false');
     expect(valueOf(0x430, 'isPunctuation')).toBe('false');
@@ -42,5 +44,10 @@ describe('characterProperties', () => {
 
   it('U+0020 は空白である', () => {
     expect(valueOf(0x20, 'isWhiteSpace')).toBe('true');
+  });
+
+  it('半角の A は Na、全角のＡは F である', () => {
+    expect(valueOf(0x41, 'eastAsianWidth')).toBe('Na');
+    expect(valueOf(0xff21, 'eastAsianWidth')).toBe('F');
   });
 });

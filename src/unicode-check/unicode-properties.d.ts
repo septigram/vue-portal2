@@ -1,6 +1,7 @@
 declare module 'unicode-properties' {
   export function getScript(codePoint: number): string;
   export function getCategory(codePoint: number): string;
+  export function getEastAsianWidth(codePoint: number): string;
   export function isAlphabetic(codePoint: number): boolean;
   export function isDigit(codePoint: number): boolean;
   export function isPunctuation(codePoint: number): boolean;

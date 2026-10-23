@@ -1,5 +1,6 @@
 import {
   getCategory,
+  getEastAsianWidth,
   isAlphabetic,
   isBaseForm,
   isDigit,
@@ -17,11 +18,12 @@ export interface PropertyLine {
   value: string;
 }
 
-/** 符号位置について、category と各判定の結果を順に返す。 */
+/** 符号位置について、category、East Asian Width、各判定の結果を順に返す。 */
 export function characterProperties(codePoint: number): PropertyLine[] {
   const flag = (value: boolean) => (value ? 'true' : 'false');
   return [
     { name: 'category', value: getCategory(codePoint) },
+    { name: 'eastAsianWidth', value: getEastAsianWidth(codePoint) },
     { name: 'isAlphabetic', value: flag(isAlphabetic(codePoint)) },
     { name: 'isDigit', value: flag(isDigit(codePoint)) },
     { name: 'isPunctuation', value: flag(isPunctuation(codePoint)) },

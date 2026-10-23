@@ -51,6 +51,10 @@ function categoryLine(view: CharView): PropertyLine | undefined {
   return view.properties.find((line) => line.name === 'category');
 }
 
+function eastAsianWidthLine(view: CharView): PropertyLine | undefined {
+  return view.properties.find((line) => line.name === 'eastAsianWidth');
+}
+
 function flagLines(view: CharView): PropertyLine[] {
   return view.properties.filter((line) => line.name.startsWith('is'));
 }
@@ -168,7 +172,7 @@ const totalCount = computed(() => tallies.value.reduce((sum, item) => sum + item
         :style="{ left: `${hover.left}px`, top: `${hover.top}px` }"
       >
         <p class="glyph">{{ hover.view.text }}</p>
-        <p class="meta"><span class="label">文字種</span> {{ hover.view.script }} <span class="label">Unicode</span> {{ hover.view.unicode }}<template v-if="hover.view.sjis">{{ ' ' }}<span class="label">SJIS</span> {{ hover.view.sjis }}</template><template v-if="categoryLine(hover.view)">{{ ' ' }}<span class="label">category</span> {{ categoryLine(hover.view)?.value }}</template></p>
+        <p class="meta"><span class="label">文字種</span> {{ hover.view.script }} <span class="label">Unicode</span> {{ hover.view.unicode }}<template v-if="hover.view.sjis">{{ ' ' }}<span class="label">SJIS</span> {{ hover.view.sjis }}</template><template v-if="categoryLine(hover.view)">{{ ' ' }}<span class="label">category</span> {{ categoryLine(hover.view)?.value }}</template><template v-if="eastAsianWidthLine(hover.view)">{{ ' ' }}<span class="label">East Asian Width</span> {{ eastAsianWidthLine(hover.view)?.value }}</template></p>
         <p class="flags">
           <template v-for="(line, index) in flagLines(hover.view)" :key="line.name">
             <span v-if="index > 0">{{ ' ' }}</span>
@@ -192,7 +196,7 @@ const totalCount = computed(() => tallies.value.reduce((sum, item) => sum + item
 
 .result {
   white-space: pre-wrap;
-  font-family: "Segoe UI", "Yu Gothic UI", sans-serif;
+  font-family: 'BIZ UD Gothic', "Helvetica Neue", Arial, sans-serif;
   font-size: 20px;
   line-height: 1.4;
   margin-top: 0.5rem;
