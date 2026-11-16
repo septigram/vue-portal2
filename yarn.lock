@@ -904,15 +904,6 @@ picomatch@^4.0.4, picomatch@^4.0.7:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.7.tgz#6313360034ccb36b3dc61ecbdff78121f90fe21f"
   integrity sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA==
 
-postcss@^8.5.29, postcss@^8.5.32:
-  version "8.5.32"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.5.32.tgz#fbccef8388a0c77508c713bfd37728d646595803"
-  integrity sha512-LJlKCCAUFKOuZxipUdYw1NzIITEsPcgyOG9LkvRJvuKj/bRzbuRY0ARXvL0pWGpsZvn8jku+LMep2eU0seHp8g==
-  dependencies:
-    nanoid "^3.3.20"
-    picocolors "^1.1.1"
-    source-map-js "^1.2.2"
-
 postcss@^8.5.32:
   version "8.5.32"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.5.32.tgz#fbccef8388a0c77508c713bfd37728d646595803"
@@ -1010,10 +1001,10 @@ typescript@7.0.2:
     "@typescript/typescript-win32-arm64" "7.0.2"
     "@typescript/typescript-win32-x64" "7.0.2"
 
-unicode-properties@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/unicode-properties/-/unicode-properties-2.0.1.tgz#2708efe8fa58ccec8c1d3662749dd59b8a1bb61a"
-  integrity sha512-hv6H7A0LZVW/42alBg9b35eGqaJ9SQ3t9rnBrqqkp/qwvrLETtABdVAOesUwFk9WbJtBY3zgpsqgFUZ1Tqy6jw==
+unicode-properties@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/unicode-properties/-/unicode-properties-2.0.2.tgz#c7dbb7cdca5072503218f9e52e823e63f5dd2fe0"
+  integrity sha512-7MWOxBC6aT/+xeMKjdnp3GEuAMLmu0uRGD3jAN3PrGnjKynnellVkvQ6OYdeSIBwSdo67+zvgs1//7Qenb9iSA==
   dependencies:
     unicode-trie "^3.0.0"
 
